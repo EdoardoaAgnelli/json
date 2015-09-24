@@ -24,15 +24,46 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
 	<script type="text/javascript">
-		$.ajax({
-			url: https://github.com/EdoardoaAgnelli/json.git
-			success: function(data) {
-				document.body.appendChildren(data);
-			},
-			error: function(data) {
-				console.error(data);
-			}
-		});
+		var page1 = 'data/simple1.html';
+		var page2 = 'data/simple2.html';
+		var page3 = 'data/simple3.html';
+
+		var json1 = 'data/some1.json';
+		var json2 = 'data/some2.json';
+		var json3 = 'data/some3.json';
+
+		var img1 = 'data/image1.html';
+		var img2 = 'data/image2.html';
+		var img3 = 'data/image3.html';
+
+
+		function loadPage(data) {
+			$.ajax({
+				url: data,
+				type: 'GET',
+				success: function(data){
+					$(document.body).append(data);
+				},
+				error: function(data) {
+					console.error(data);
+				}
+			});
+		};
+
+		function loadJson(data) {
+			$.ajax({
+				url: data,
+				type: 'GET',
+				data: 'json',
+				success: function(data){
+
+					$(document.body).append(data);
+				},
+				error: function(data) {
+					console.error(data);
+				}
+			});
+		};
 	</script>
 
 
